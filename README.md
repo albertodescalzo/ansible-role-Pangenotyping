@@ -1,3 +1,6 @@
+![Testing](https://github.com/albertodescalzo/ansible-role-Pangenotyping/workflows/Role-Testing/badge.svg)
+
+
 Pangenotyping
 =========
 
