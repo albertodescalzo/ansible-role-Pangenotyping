@@ -34,3 +34,10 @@ Author Information
 ------------------
 
 Email: Alberto.Descalzo.Garcia@hhu.de
+
+
+Still in Progress
+-----------------
+
+- Testing with molecule
+- To run tests, execute (provisional solution): ansible-playbook tests/test.yml
