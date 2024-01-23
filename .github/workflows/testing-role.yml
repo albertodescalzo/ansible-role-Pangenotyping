@@ -16,8 +16,6 @@ jobs:
     steps:
       - name: Check out the codebase.
         uses: actions/checkout@v2
-        with:
-          path: 'geerlingguy.jenkins'
 
       - name: Set up Python 3.
         uses: actions/setup-python@v2
