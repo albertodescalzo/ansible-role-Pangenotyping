@@ -1,4 +1,6 @@
 galaxy_info:
+  role_name: pangenotyping
+  namespace: albertodescalzo
   author: Alberto Descalzo
   description: "Installation of (bioinformatics) pangenomics-genotyping software in VMs within deNBI Cloud to run genotyping pipelines of state-of-the-art graph-genome-based approaches."
 
