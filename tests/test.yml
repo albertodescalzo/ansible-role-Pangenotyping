@@ -1,10 +1,18 @@
 ---
 - name: Testing
-  hosts: localhost #denbi_vms
+  hosts: localhost
+  #hosts: denbi_vms
+  become: true
   vars_files:
     - "../vars/main.yml"
   
   tasks: 
+    - name: debug pwd
+      ansible.builtin.command: pwd
+      register: directory
+    - name: Debug pwd path
+      debug:
+        msg: "{{ directory.stdout }}"
     - name: Installing role Pangenotyping
       include_tasks: "../tasks/main.yml"
     - name: Check Mamba installation
