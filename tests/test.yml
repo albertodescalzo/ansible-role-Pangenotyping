@@ -13,6 +13,13 @@
     - name: Debug pwd path
       debug:
         msg: "{{ directory.stdout }}"
+    - name: Check if 'ubuntu' user exists
+      command: id -u ubuntu
+      register: ubuntu_user_check
+      ignore_errors: true
+    - name: Debug ubuntu user
+      debug:
+        msg: "{{ ubuntu_user_check.stdout }}"
     - name: Installing role Pangenotyping
       include_tasks: "../tasks/main.yml"
     - name: Check Mamba installation
