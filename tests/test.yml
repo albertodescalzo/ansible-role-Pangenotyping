@@ -1,6 +1,6 @@
 ---
 - name: Testing
-  hosts: denbi_vms
+  hosts: localhost #denbi_vms
   vars_files:
     - "../vars/main.yml"
   
@@ -44,7 +44,7 @@
       register: paragraph_help
       failed_when: paragraph_help.stderr != 'no --response-file'
     - name: Check RTG Tools installation
-      command: "{{ home_path }}/rtg-tools-{{ rtgtools_version }}/rtg --help"
+      command: 'echo "y" | {{ home_path }}/rtg-tools-{{ rtgtools_version }}/rtg --help'
       register: rtgtools_help
       failed_when: rtgtools_help.stderr != ''
     - name: Check Minimap2 installation

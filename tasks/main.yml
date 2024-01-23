@@ -44,7 +44,7 @@
       - kmc
       - bwa
 - name: Install snakemake with mamba.
-  command: '{{ home_path }}/miniforge3/bin/mamba create -c conda-forge -c bioconda -n snakemake snakemake={{ snakemake_version}}'
+  command: '{{ home_path }}/miniforge3/bin/mamba create -c conda-forge -c bioconda -n snakemake -y snakemake={{ snakemake_version}}'
   args:
     creates: '{{ home_path }}/miniforge3/envs/snakemake/bin/snakemake'
 - name: Copy snakemake to path.
