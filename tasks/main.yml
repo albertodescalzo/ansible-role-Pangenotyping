@@ -52,14 +52,14 @@
     src: '{{ home_path }}/miniforge3/envs/snakemake/bin/snakemake'
     dest: /usr/local/bin/snakemake 
     remote_src: true
-    owner: {{ username }}
-    group: {{ username }}
+    owner: '{{ username }}'
+    group: '{{ username }}'
     mode: '0755'
 - name: Download pangenie.
   ansible.builtin.get_url:
     url: 'https://github.com/eblerjana/pangenie/archive/refs/tags/v{{ pangenie_version }}.tar.gz'
     dest: /tmp/pangenie_{{ pangenie_version }}.tar.gz
-    owner: {{ username }}
+    owner: '{{ username }}'
     mode: 0755
 - name: Unzip pangenie.
   ansible.builtin.unarchive:
@@ -87,8 +87,8 @@
     src: '{{ home_path }}/pangenie-{{ pangenie_version }}/build/src/PanGenie'
     dest: /usr/local/bin/PanGenie_v{{ pangenie_version }}
     remote_src: true
-    owner: {{ username }}
-    group: {{ username }}
+    owner: '{{ username }}'
+    group: '{{ username }}'
     mode: '0755'
 - name: Copy pangenie to path 2/2.
   become: true
@@ -96,8 +96,8 @@
     src: '{{ home_path }}/pangenie-{{ pangenie_version }}/build/src/PanGenie-index'
     dest: /usr/local/bin/PanGenie_v{{ pangenie_version }}-index
     remote_src: true
-    owner: {{ username }}
-    group: {{ username }}
+    owner: '{{ username }}'
+    group: '{{ username }}'
     mode: '0755'
 - name: Install truvari using pip
   pip:
@@ -110,15 +110,15 @@
     src: '{{ home_path }}/miniforge3/bin/truvari'
     dest: /usr/local/bin/truvari
     remote_src: true
-    owner: {{ username }}
-    group: {{ username }}
+    owner: '{{ username }}'
+    group: '{{ username }}'
     mode: '0755'
 - name: Download bayesTyper
   become: true
   get_url:
     url: 'https://github.com/bioinformatics-centre/BayesTyper/releases/download/{{ bayestyper_version }}/bayesTyper_{{ bayestyper_version }}_linux_x86_64.tar.gz'
     dest: '/tmp/bayesTyper_{{ bayestyper_version }}_linux_x86_64.tar.gz'
-    owner: {{ username }}
+    owner: '{{ username }}'
     mode: 0755
 - name: Unzip bayesTyper.
   ansible.builtin.unarchive:
@@ -131,8 +131,8 @@
     src: '/tmp/bayesTyper_{{ bayestyper_version }}_linux_x86_64/bin/bayesTyper'
     dest: /usr/local/bin/bayesTyper
     remote_src: true
-    owner: {{ username }}
-    group: {{ username }}
+    owner: '{{ username }}'
+    group: '{{ username }}'
     mode: '0755'
 - name: Copy bayesTyperTools to path
   become: true
@@ -140,15 +140,15 @@
     src: '/tmp/bayesTyper_{{ bayestyper_version }}_linux_x86_64/bin/bayesTyperTools'
     dest: /usr/local/bin/bayesTyperTools
     remote_src: true
-    owner: {{ username }}
-    group: {{ username }}
+    owner: '{{ username }}'
+    group: '{{ username }}'
     mode: '0755'
 - name: Download Paragraph
   become: true
   get_url:
     url: 'https://github.com/Illumina/paragraph/releases/download/{{ paragraph_version }}/paragraph-{{ paragraph_version }}-binary.zip'
     dest: '/tmp/paragraph.zip'
-    owner: {{ username }}
+    owner: '{{ username }}'
     mode: 0755
 - name: Create paragraph directory
   ansible.builtin.file:
@@ -165,14 +165,14 @@
     src: '/tmp/paragraph/bin/paragraph'
     dest: /usr/local/bin/paragraph
     remote_src: true
-    owner: {{ username }}
-    group: {{ username }}
+    owner: '{{ username }}'
+    group: '{{ username }}'
     mode: '0755'
 - name: Download RTG Tools
   ansible.builtin.get_url:
     url: 'https://github.com/RealTimeGenomics/rtg-tools/releases/download/{{ rtgtools_version }}/rtg-tools-{{ rtgtools_version }}-linux-x64.zip'
     dest: /tmp/rtgtools.zip
-    owner: {{ username }}
+    owner: '{{ username }}'
     mode: 0755
 - name: Unzip RTG Tools.
   ansible.builtin.unarchive:
@@ -183,7 +183,7 @@
   ansible.builtin.get_url:
     url: 'https://github.com/lh3/minimap2/releases/download/v{{ minimap2_version }}/minimap2-{{ minimap2_version }}_x64-linux.tar.bz2'
     dest: /tmp/minimap2.tar.bz2
-    owner: {{ username }}
+    owner: '{{ username }}'
     mode: 0755
 - name: Unzip minimap2.
   ansible.builtin.unarchive:
@@ -196,15 +196,15 @@
     src: '/tmp/minimap2-{{ minimap2_version }}_x64-linux/minimap2'
     dest: /usr/local/bin/minimap2
     remote_src: true
-    owner: {{ username }}
-    group: {{ username }}
+    owner: '{{ username }}'
+    group: '{{ username }}'
     mode: '0755'
 - name: Download graphtyper.
   become: true
   get_url:
     url: 'https://github.com/DecodeGenetics/graphtyper/releases/download/{{ graphtyper2_version }}/graphtyper'
     dest: /usr/local/bin/graphtyper
-    owner: {{ username }}
+    owner: '{{ username }}'
     mode: 0755
 - name: Install gdown using pip
   pip:
@@ -217,8 +217,8 @@
     src: '{{ home_path }}/miniforge3/bin/gdown'
     dest: /usr/local/bin/gdown
     remote_src: true
-    owner: {{ username }}
-    group: {{ username }}
+    owner: '{{ username }}'
+    group: '{{ username }}'
     mode: '0755'
 - name: Add conda init bash to .bashrc
   ansible.builtin.lineinfile:
