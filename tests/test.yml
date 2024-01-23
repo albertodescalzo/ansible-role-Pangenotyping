@@ -1,17 +1,12 @@
 ---
 - name: Testing
   hosts: localhost
+  vars_files:
+    - "../vars/main.yml"
   
-  # roles:
-  #   - Pangenotyping
-
   tasks: 
     - name: Installing role Pangenotyping
-      import_playbook: "../tasks/main.yml"
-    - name: Get variable version
-      include_vars:
-        file: "../vars/vars.yml"
-        name: myvars    
+      include_tasks: "../tasks/main.yml"
     - name: Check Mamba installation
       command: "mamba --help"
       register: mamba_help
@@ -25,11 +20,11 @@
       register: snakemake_help
       failed_when: snakemake_help.stderr != ''
     - name: Check PanGenie 1/2 installation
-      command: "PanGenie_v{{ myvars.pangenie_version }} --help"
+      command: "PanGenie_v{{ pangenie_version }} --help"
       register: pangenie1_help
       failed_when: pangenie1_help.stdout != ''
     - name: Check PanGenie 2/2 installation
-      command: "PanGenie_v{{ myvars.pangenie_version }}-index --help"
+      command: "PanGenie_v{{ pangenie_version }}-index --help"
       register: pangenie2_help
       failed_when: pangenie2_help.stdout != ''
     - name: Check Truvari installation
@@ -49,7 +44,7 @@
       register: paragraph_help
       failed_when: paragraph_help.stderr != 'no --response-file'
     - name: Check RTG Tools installation
-      command: "{{ myvars.home_path }}/rtg-tools-{{ myvars.rtgtools_help }}/rtg --help"
+      command: "{{ home_path }}/rtg-tools-{{ rtgtools_help }}/rtg --help"
       register: rtgtools_help
       failed_when: rtgtools_help.stderr != ''
     - name: Check Minimap2 installation
