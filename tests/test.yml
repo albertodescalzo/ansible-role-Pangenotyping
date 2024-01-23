@@ -5,10 +5,12 @@
   # roles:
   #   - Pangenotyping
 
-  tasks:    
+  tasks: 
+    - name: Installing role Pangenotyping
+      import_playbook: "../tasks/main.yml"
     - name: Get variable version
       include_vars:
-        file: vars.yml
+        file: "../vars/vars.yml"
         name: myvars    
     - name: Check Mamba installation
       command: "mamba --help"
