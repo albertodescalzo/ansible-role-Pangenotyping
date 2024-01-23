@@ -5,19 +5,18 @@
     dest: /tmp/mamba.sh
     mode: 0744
 - name: Install mamba.
-  command: > 
-    /tmp/mamba.sh -b -f -p {{ home_path }}/miniforge3 
+  command: '/tmp/mamba.sh -b -f -p {{ home_path }}/miniforge3 '
   args:
     creates: "{{ home_path }}/miniforge3/bin/mamba"
 - name: Add Mamba to PATH environment variable.
   lineinfile:
-    path: {{ home_path }}/.bashrc
+    path: '{{ home_path }}/.bashrc'
     line: 'export PATH={{ home_path }}/miniforge3/bin:$PATH'
     create: yes
     state: present  
 - name: Add Conda to PATH environment variable.
   lineinfile:
-    path: {{ home_path }}/.bashrc
+    path: '{{ home_path }}/.bashrc'
     line: 'export PATH={{ home_path }}/miniforge3/bin:$PATH'
     create: yes
     state: present  
