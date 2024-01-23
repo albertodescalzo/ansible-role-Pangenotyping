@@ -6,3 +6,6 @@
 **/pangenomics
 **/workers-mount-volumes
 **/Pangenotyping_role.tar.gz
+**/molecule
+inventory
+ansible.cfg
