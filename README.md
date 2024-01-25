@@ -14,7 +14,7 @@ Role and inference pipeline were used within the de.NBI Cloud (German Network fo
 Role Variables
 --------------
 
-Adapt the software versions to your preferences. The given variables were used to run the pipeline.   
+Adapt the software versions to your preferences. The given variables were used to run the pipeline. Additionally, pay attention to `home_path` and `username`. They should be set up to `/home/runner/work`and `runner` when testing CI.   
 
 Dependencies
 ------------
